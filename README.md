@@ -1,6 +1,6 @@
 # Python Chess Game
 
-This is a simple chess GUI built with Python and Pygame configured to run with Stockfish and expose some of its parameters. Future versions will consider different ways of using the engine evaluation and connecting to my own UCI-compatable engine.
+This is a simple chess GUI built with Python and Pygame configured to run with Stockfish and expose some of its parameters. Future versions will consider different ways of using the engine evaluation and connecting to different UCI engines.
 
 ## Description
 
@@ -42,13 +42,10 @@ Reset button restarts the game.
 ## Future Improvements
 
 Some ideas for enhancing the game:
+- Add engine evaluation showing in real time
+- Implement databasing for game results so the player's own game can be analyzed in depth
+- Add the ability to use other chess engines
 
-- Add graphical assets - icons, backgrounds, etc
-- Implement additional chess rules: castling, en passant capture, pawn promotion
-- Add gameplay features: takebacks, highlights, move recommendations
-- Support online multiplayer
-- Improve engine dashboard with additional options
-- Mobile/touch support
 
 ## Credits
 
