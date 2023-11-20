@@ -42,7 +42,7 @@ def main():
 
         pygame.display.flip()
         clock.tick(60)
-
+    chess_game.close()
     pygame.quit()
 
 def wait_for_key():

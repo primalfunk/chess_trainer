@@ -17,12 +17,15 @@ class ChessGame:
         self.guiBoard = ChessBoard(board_size)
         dashboard_rect = pygame.Rect(800, 0, 300, 800)
         self.player_color = True
-        self.dashboard = EngineDashboard(self.engine, self.manager, dashboard_rect, self.player_color)
+        self.dashboard = EngineDashboard(self.engine, self.manager, dashboard_rect, self.player_color, self)
         self.selected_piece = None
         self.piece_being_dragged = None
         self.dragging_position = (0, 0)
         self.game_in_progress = True
 
+    def get_current_board_position(self):
+        return self.board.fen()
+    
     def handle_mouse_down(self, location):
         x, y = location
         if 0 <= x < self.guiBoard.board_size and 0 <= y < self.guiBoard.board_size:
@@ -79,6 +82,7 @@ class ChessGame:
 
     def update_dashboard(self, time_delta):
         self.dashboard.update(time_delta)
+        self.dashboard.update_evaluation()
 
     def draw_dashboard(self):
         self.dashboard.draw(self.screen)
@@ -138,6 +142,10 @@ class ChessGame:
             col = 7 - (x // self.guiBoard.square_size)
             row = y // self.guiBoard.square_size
         return row, col
+    
+    def close(self):
+        # Clean up on exit
+        pass
         
 
 
