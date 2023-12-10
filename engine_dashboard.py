@@ -166,26 +166,20 @@ class EngineDashboard:
                 info = self.engine.analyse(self.board, analysis_limit)
                 if 'score' in info:
                     pov_score = info['score']
-                    print(pov_score)
                     if hasattr(pov_score, 'mate'):
                         mate_in = pov_score.mate
                         eval_text = f"Mate in {mate_in}" if mate_in is not None else "Evaluation: N/A"
                     elif hasattr(pov_score, 'cp'):
-                        print("Has CP")
                         cp_score = pov_score.cp / 100
                         eval_text = f"Evaluation: {cp_score:+.2f}"
-                        print(eval_text)
                     else:
                         eval_text = "Evaluation: Complex"
-                        print(eval_text)
                 else:
                     eval_text = "Evaluation: N/A"
-                    print(eval_text)
                 
                 if 'pv' in info:
                     pv_moves = info['pv']
                     pv_text = self.format_principal_variation(pv_moves)
                     eval_text += f" | PV: {pv_text}"
-                print(eval_text)
                 self.evaluation_tb.html_text = eval_text
                 self.evaluation_tb.rebuild() 

@@ -10,15 +10,12 @@ def main():
 
     running = True
     while running:
-        time_delta = clock.tick(60)/1000.0
-
+        time_delta = clock.tick(60)/100.0
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
             # Process dashboard events
             chess_game.process_dashboard_event(event)
-            
             if event.type == pygame.MOUSEBUTTONDOWN:
                 location = pygame.mouse.get_pos()
                 chess_game.handle_mouse_down(location)
